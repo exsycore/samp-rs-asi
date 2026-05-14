@@ -1,0 +1,31 @@
+[package]
+name = "chatimgui-rust"
+version = "0.1.0"
+edition = "2024"
+build = "build.rs"
+
+[lib]
+name = "chatimgui"
+crate-type = ["cdylib"]
+
+[package.metadata.winres]
+ProductName = "chatimgui"
+FileDescription = "Chat with imgui by EASYCORE"
+OriginalFilename = "chatimgui.asi"
+LegalCopyright = "Copyright © 2026 EASYCORE"
+
+[dependencies]
+
+[dependencies.windows]
+version = "0.62.1"
+features = [
+    "Win32_Foundation",
+    "Win32_System_Memory",
+    "Win32_System_SystemServices",
+    "Win32_System_LibraryLoader",
+    "Win32_System_SystemInformation",
+    "Win32_System_Diagnostics_Debug",
+]
+
+[build-dependencies]
+winres = "0.1"

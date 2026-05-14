@@ -1,0 +1,12 @@
+[tasks.build]
+command = "cargo"
+args = ["build", "--release"]
+
+[tasks.post-build]
+dependencies = ["build"]
+script = [
+    "copy /y \"target\\i686-pc-windows-msvc\\release\\chatimgui.dll\" \"target\\i686-pc-windows-msvc\\release\\chatimgui.asi\""
+]
+
+[tasks.default]
+alias = "post-build"
