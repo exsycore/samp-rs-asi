@@ -48,12 +48,12 @@ type AddMessageFn = unsafe extern "thiscall" fn(
 pub fn add_message(base_address: usize, version: SampVersion, message: &str, color: u32) {
     unsafe {
         let (chat_ptr_offset, func_offset) = match version {
-            SampVersion::V037R1 => (0x21A0E4, 0x645A0),
-            SampVersion::V037R3 => (0x26E8C8, 0x0000f),
-            SampVersion::V037R3_1 => (0x26E8C8, 0x679F0),
-            SampVersion::V037R5 => (0x26EB80, 0x68170),
-            SampVersion::V03DLR1 => (0x2ACA10, 0x67BE0),
-            _ => (0x21A0E4, 0x645A0),
+            SampVersion::V037R1     => (0x21A0E4, 0x645A0),
+            SampVersion::V037R3     => (0x26E8C8, 0x0000f),
+            SampVersion::V037R3_1   => (0x26E8C8, 0x679F0),
+            SampVersion::V037R5     => (0x26EB80, 0x68170),
+            SampVersion::V03DLR1    => (0x2ACA10, 0x67BE0),
+            _                       => (0x21A0E4, 0x645A0),
         };
         let chat_ptr_ptr = (base_address + chat_ptr_offset) as *mut *mut usize;
         if chat_ptr_ptr.is_null() || (*chat_ptr_ptr).is_null() { return; }
