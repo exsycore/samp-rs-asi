@@ -5,7 +5,7 @@ args = ["build", "--release"]
 [tasks.post-build]
 dependencies = ["build"]
 script = [
-    "copy /y \"target\\i686-pc-windows-msvc\\release\\chatimgui.dll\" \"target\\i686-pc-windows-msvc\\release\\chatimgui.asi\""
+    "copy /y \"target\\i686-pc-windows-msvc\\release\\samp_rs_asi.dll\" \"target\\i686-pc-windows-msvc\\release\\samp_rs_asi.asi\""
 ]
 
 [tasks.default]
